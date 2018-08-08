@@ -32,14 +32,14 @@ let g:tagbar_type_go = {
             \ 'ctagsargs' : '-sort -silent'
             \ }
 
-set ttymouse=xterm  " so vim doesn't hang inside screen and tmux 
+" set ttymouse=xterm " so vim doesn't hang inside screen and tmux 
 
 set tags=tags;/
 set wrap
 filetype indent on
 set autoindent
 set cin
-set nosmartindent
+" set nosmartindent
 inoremap # X<BS>#
 
 set nofoldenable    " disable folding
@@ -58,3 +58,26 @@ let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 set updatetime=100
 
+" http://vim.wikia.com/wiki/Converting_tabs_to_spaces
+set tabstop=4 shiftwidth=4 expandtab
+
+" Don't forget set the airline theme as well.
+let g:airline_theme = 'one'
+
+" This line enables the true color support.
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+colorscheme onedark
+
+" https://sunaku.github.io/vim-256color-bce.html
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+\ }
+
+tnoremap <Esc> <C-\><C-n>
